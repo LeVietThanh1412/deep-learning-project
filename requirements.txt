@@ -1,4 +1,28 @@
-torch
-torchvision
-numpy
-pillow
+# ==============================================================================
+# requirements.txt
+# ------------------------------------------------------------------------------
+# Danh sách thư viện cần thiết cho dự án U-Net Cityscapes Segmentation.
+# Cài đặt bằng lệnh: pip install -r requirements.txt
+# ==============================================================================
+
+# Deep Learning framework
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Xử lý ảnh
+Pillow>=9.0.0
+opencv-python>=4.7.0
+
+# Tính toán khoa học
+numpy>=1.24.0
+
+# Tiện ích huấn luyện & logging
+tqdm>=4.65.0
+tensorboard>=2.13.0
+
+# Lưu/load config
+pyyaml>=6.0
+
+# Notebook (Kaggle)
+ipykernel>=6.0.0
+matplotlib>=3.7.0
