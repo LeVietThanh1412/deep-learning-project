@@ -300,41 +300,39 @@ class CityscapesDataset(Dataset):
         return len(self.img_paths)
 
     def __getitem__(self, idx: int):
-        # Load ảnh RGB
-        img = Image.open(self.img_paths[idx]).convert("RGB")
+        # 1. Đọc ảnh và Resize NGAY LẬP TỨC để giảm kích thước trước khi tính toán
+        H, W = self.img_size
+        img = Image.open(self.img_paths[idx]).convert("RGB").resize((W, H), Image.BILINEAR)
 
-        # Load mask
+        # 2. Xử lý Mask tương tự
         has_mask = idx < len(self.mask_paths)
         if has_mask:
-            mask_arr = np.array(
-                Image.open(self.mask_paths[idx]), dtype=np.uint8
-            )
-            # Chuyển labelId → trainId nếu cần
+            # Đọc mask, resize ngay bằng NEAREST để giữ nguyên nhãn
+            mask_img = Image.open(self.mask_paths[idx]).resize((W, H), Image.NEAREST)
+            mask_arr = np.array(mask_img, dtype=np.uint8)
+            
+            # Chuyển labelId sau khi đã resize (nhanh hơn rất nhiều vì ít pixel hơn)
             if self.label_type == "labelIds":
                 mask_arr = convert_label_to_train(mask_arr)
+            
+            # Biến lại thành Image để dùng chung hàm _augment của bạn
             mask = Image.fromarray(mask_arr)
         else:
             mask = None
 
-        # Augmentation (chỉ train)
+        # 3. Augmentation
         if self.augment and mask is not None:
             img, mask = self._augment(img, mask)
 
-        # Resize
-        H, W = self.img_size
-        img  = img.resize((W, H), Image.BILINEAR)
-        if mask is not None:
-            mask = mask.resize((W, H), Image.NEAREST)  # NEAREST giữ đúng nhãn
-
-        # → Tensor
-        img_t = TF.to_tensor(img)           # (3, H, W) float [0,1]
-        img_t = self.normalize(img_t)       # Chuẩn hóa ImageNet
+        # 4. Chuyển thành Tensor
+        img_t = TF.to_tensor(img)
+        img_t = self.normalize(img_t)
 
         if mask is not None:
-            mask_t = torch.from_numpy(
-                np.array(mask, dtype=np.int64)
-            )                               # (H, W) int64
+            # Ép kiểu trực tiếp, không cần qua np.array nữa
+            mask_t = torch.as_tensor(np.array(mask), dtype=torch.int64)
             return img_t, mask_t
+            
         return img_t
 
     def _augment(self, img, mask):
