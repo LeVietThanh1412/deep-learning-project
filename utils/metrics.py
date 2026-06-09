@@ -73,63 +73,49 @@ class SegmentationMetrics:
     def compute(self) -> Dict:
         """
         Tính toán các chỉ số từ confusion matrix.
-
-        Returns:
-            Dict:
-              mIoU          : float — trung bình IoU 19 lớp.
-              IoU_per_class : Dict[name → float].
-              pixel_accuracy: float.
-              mean_accuracy : float.
         """
         cm  = self.cm.astype(np.float64)
         iou = []
         acc = []
+        dice_scores = [] # Danh sách lưu Dice của từng lớp
 
         for c in range(self.num_classes):
             tp = cm[c, c]
             fp = cm[:, c].sum() - tp
             fn = cm[c, :].sum() - tp
+            
+            # IoU
             denom_iou = tp + fp + fn
-            denom_acc = tp + fn
-
             iou.append(tp / denom_iou if denom_iou > 0 else np.nan)
+            
+            # Dice: 2 * TP / (2 * TP + FP + FN)
+            denom_dice = 2 * tp + fp + fn
+            dice_scores.append((2 * tp) / denom_dice if denom_dice > 0 else np.nan)
+            
+            # Accuracy
+            denom_acc = tp + fn
             acc.append(tp / denom_acc if denom_acc > 0 else np.nan)
 
         iou_arr = np.array(iou)
         acc_arr = np.array(acc)
+        dice_arr = np.array(dice_scores)
 
         valid_iou = iou_arr[~np.isnan(iou_arr)]
         valid_acc = acc_arr[~np.isnan(acc_arr)]
+        valid_dice = dice_arr[~np.isnan(dice_arr)]
 
         miou       = float(valid_iou.mean()) if len(valid_iou) > 0 else 0.0
         mean_acc   = float(valid_acc.mean()) if len(valid_acc) > 0 else 0.0
         pixel_acc  = float(np.diag(cm).sum() / cm.sum()) if cm.sum() > 0 else 0.0
+        mean_dice  = float(valid_dice.mean()) if len(valid_dice) > 0 else 0.0 # Dice trung bình toàn cục
 
         return {
             "mIoU"          : miou,
-            "IoU_per_class" : {self.class_names[i]: float(iou[i])
-                               for i in range(self.num_classes)},
+            "IoU_per_class" : {self.class_names[i]: float(iou[i]) for i in range(self.num_classes)},
+            "Dice"          : mean_dice,
             "pixel_accuracy": pixel_acc,
             "mean_accuracy" : mean_acc,
         }
-
-    def print_report(self):
-        """In báo cáo IoU từng lớp."""
-        r = self.compute()
-        print("\n" + "=" * 52)
-        print(f"{'Cityscapes 19-class Metrics Report':^52}")
-        print("=" * 52)
-        print(f"  {'Lớp':<20} {'IoU':>8}")
-        print("  " + "-" * 30)
-        for name, iou in r["IoU_per_class"].items():
-            val = f"{iou:.4f}" if not np.isnan(iou) else "  N/A"
-            print(f"  {name:<20} {val:>8}")
-        print("  " + "-" * 30)
-        print(f"  {'mIoU':<20} {r['mIoU']:>8.4f}")
-        print(f"  {'Pixel Accuracy':<20} {r['pixel_accuracy']:>8.4f}")
-        print(f"  {'Mean Accuracy':<20} {r['mean_accuracy']:>8.4f}")
-        print("=" * 52 + "\n")
-
 
 def compute_miou(
     preds: torch.Tensor,
