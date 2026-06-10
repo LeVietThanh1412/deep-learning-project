@@ -1,2 +1,4 @@
 *.pyc
 *.pth
+*out
+__pycache__/

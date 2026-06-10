@@ -1,0 +1,133 @@
+Model,Metric_Class,Validation_Value,Test_Value
+Model 1: CE,mIoU / Average IoU,0.6463,62.9334
+Model 1: CE,Pixel Accuracy,0.9419,
+Model 1: CE,Mean Accuracy,0.7448,
+Model 1: CE,road,0.9731,97.6802
+Model 1: CE,sidewalk,0.7877,79.1737
+Model 1: CE,building,0.8934,89.0668
+Model 1: CE,wall,0.3983,36.992
+Model 1: CE,fence,0.4117,35.8673
+Model 1: CE,pole,0.5278,48.9772
+Model 1: CE,traffic light,0.5193,53.1862
+Model 1: CE,traffic sign,0.6484,60.8376
+Model 1: CE,vegetation,0.9024,90.8523
+Model 1: CE,terrain,0.5787,68.158
+Model 1: CE,sky,0.9383,94.0387
+Model 1: CE,person,0.6904,72.4769
+Model 1: CE,rider,0.4219,45.9638
+Model 1: CE,car,0.9181,92.3217
+Model 1: CE,truck,0.5130,40.005
+Model 1: CE,bus,0.6785,49.6714
+Model 1: CE,train,0.4873,39.8273
+Model 1: CE,motorcycle,0.3440,42.1184
+Model 1: CE,bicycle,0.6480,58.52
+Model 2: Vanilla Unet Dice + CE,mIoU / Average IoU,0.6617,64.9197
+Model 2: Vanilla Unet Dice + CE,Pixel Accuracy,0.9410,
+Model 2: Vanilla Unet Dice + CE,Mean Accuracy,0.7565,
+Model 2: Vanilla Unet Dice + CE,road,0.9708,97.5482
+Model 2: Vanilla Unet Dice + CE,sidewalk,0.7751,78.4244
+Model 2: Vanilla Unet Dice + CE,building,0.8895,88.5609
+Model 2: Vanilla Unet Dice + CE,wall,0.3980,36.3806
+Model 2: Vanilla Unet Dice + CE,fence,0.4172,37.131
+Model 2: Vanilla Unet Dice + CE,pole,0.5264,49.6027
+Model 2: Vanilla Unet Dice + CE,traffic light,0.5861,59.5664
+Model 2: Vanilla Unet Dice + CE,traffic sign,0.6691,63.2854
+Model 2: Vanilla Unet Dice + CE,vegetation,0.8996,90.651
+Model 2: Vanilla Unet Dice + CE,terrain,0.5765,67.8567
+Model 2: Vanilla Unet Dice + CE,sky,0.9321,93.8587
+Model 2: Vanilla Unet Dice + CE,person,0.7166,74.8278
+Model 2: Vanilla Unet Dice + CE,rider,0.4900,55.0374
+Model 2: Vanilla Unet Dice + CE,car,0.9135,92.1805
+Model 2: Vanilla Unet Dice + CE,truck,0.5382,43.6811
+Model 2: Vanilla Unet Dice + CE,bus,0.6918,51.7564
+Model 2: Vanilla Unet Dice + CE,train,0.5086,43.5639
+Model 2: Vanilla Unet Dice + CE,motorcycle,0.3908,47.1231
+Model 2: Vanilla Unet Dice + CE,bicycle,0.6832,62.4389
+Model 3: Resnet encoder lr=1e-3,mIoU / Average IoU,0.6145,60.5863
+Model 3: Resnet encoder lr=1e-3,Pixel Accuracy,0.9311,
+Model 3: Resnet encoder lr=1e-3,Mean Accuracy,0.7255,
+Model 3: Resnet encoder lr=1e-3,road,0.9706,97.3397
+Model 3: Resnet encoder lr=1e-3,sidewalk,0.7658,76.7851
+Model 3: Resnet encoder lr=1e-3,building,0.8694,86.6695
+Model 3: Resnet encoder lr=1e-3,wall,0.4143,33.2353
+Model 3: Resnet encoder lr=1e-3,fence,0.3872,30.5035
+Model 3: Resnet encoder lr=1e-3,pole,0.4321,41.1197
+Model 3: Resnet encoder lr=1e-3,traffic light,0.4762,48.9184
+Model 3: Resnet encoder lr=1e-3,traffic sign,0.5612,53.9216
+Model 3: Resnet encoder lr=1e-3,vegetation,0.8789,88.3707
+Model 3: Resnet encoder lr=1e-3,terrain,0.5666,64.9905
+Model 3: Resnet encoder lr=1e-3,sky,0.9270,93.0594
+Model 3: Resnet encoder lr=1e-3,person,0.6405,68.5517
+Model 3: Resnet encoder lr=1e-3,rider,0.4075,46.8753
+Model 3: Resnet encoder lr=1e-3,car,0.8953,90.7852
+Model 3: Resnet encoder lr=1e-3,truck,0.5837,37.0544
+Model 3: Resnet encoder lr=1e-3,bus,0.6396,52.3199
+Model 3: Resnet encoder lr=1e-3,train,0.3428,46.7685
+Model 3: Resnet encoder lr=1e-3,motorcycle,0.3360,40.4871
+Model 3: Resnet encoder lr=1e-3,bicycle,0.5817,53.3847
+Model 4: Resnet encoder lr=1e-4,mIoU / Average IoU,0.6419,62.3664
+Model 4: Resnet encoder lr=1e-4,Pixel Accuracy,0.9347,
+Model 4: Resnet encoder lr=1e-4,Mean Accuracy,0.7416,
+Model 4: Resnet encoder lr=1e-4,road,0.9703,97.4647
+Model 4: Resnet encoder lr=1e-4,sidewalk,0.7671,77.6981
+Model 4: Resnet encoder lr=1e-4,building,0.8755,87.6177
+Model 4: Resnet encoder lr=1e-4,wall,0.3923,33.4645
+Model 4: Resnet encoder lr=1e-4,fence,0.4135,31.9843
+Model 4: Resnet encoder lr=1e-4,pole,0.4563,43.6771
+Model 4: Resnet encoder lr=1e-4,traffic light,0.5034,50.7513
+Model 4: Resnet encoder lr=1e-4,traffic sign,0.5796,55.882
+Model 4: Resnet encoder lr=1e-4,vegetation,0.8849,88.9728
+Model 4: Resnet encoder lr=1e-4,terrain,0.5639,66.4783
+Model 4: Resnet encoder lr=1e-4,sky,0.9320,93.566
+Model 4: Resnet encoder lr=1e-4,person,0.6600,70.7763
+Model 4: Resnet encoder lr=1e-4,rider,0.4831,53.463
+Model 4: Resnet encoder lr=1e-4,car,0.9013,91.4071
+Model 4: Resnet encoder lr=1e-4,truck,0.5766,44.0222
+Model 4: Resnet encoder lr=1e-4,bus,0.6910,52.8373
+Model 4: Resnet encoder lr=1e-4,train,0.6055,44.33
+Model 4: Resnet encoder lr=1e-4,motorcycle,0.3323,44.271
+Model 4: Resnet encoder lr=1e-4,bicycle,0.6068,56.298
+Model 5: Unet + 0.8CE + 0.2 DICE,mIoU / Average IoU,0.6611,64.1893
+Model 5: Unet + 0.8CE + 0.2 DICE,Pixel Accuracy,0.9417,
+Model 5: Unet + 0.8CE + 0.2 DICE,Mean Accuracy,0.7620,
+Model 5: Unet + 0.8CE + 0.2 DICE,road,0.9715,97.6181
+Model 5: Unet + 0.8CE + 0.2 DICE,sidewalk,0.7824,79.0583
+Model 5: Unet + 0.8CE + 0.2 DICE,building,0.8916,88.6406
+Model 5: Unet + 0.8CE + 0.2 DICE,wall,0.4709,35.5371
+Model 5: Unet + 0.8CE + 0.2 DICE,fence,0.4172,36.9706
+Model 5: Unet + 0.8CE + 0.2 DICE,pole,0.5279,49.1703
+Model 5: Unet + 0.8CE + 0.2 DICE,traffic light,0.5661,57.3087
+Model 5: Unet + 0.8CE + 0.2 DICE,traffic sign,0.6545,62.2122
+Model 5: Unet + 0.8CE + 0.2 DICE,vegetation,0.9008,90.7582
+Model 5: Unet + 0.8CE + 0.2 DICE,terrain,0.5726,68.2432
+Model 5: Unet + 0.8CE + 0.2 DICE,sky,0.9360,93.8527
+Model 5: Unet + 0.8CE + 0.2 DICE,person,0.7006,73.6425
+Model 5: Unet + 0.8CE + 0.2 DICE,rider,0.4672,53.5208
+Model 5: Unet + 0.8CE + 0.2 DICE,car,0.9143,92.0499
+Model 5: Unet + 0.8CE + 0.2 DICE,truck,0.5959,38.4188
+Model 5: Unet + 0.8CE + 0.2 DICE,bus,0.6875,53.095
+Model 5: Unet + 0.8CE + 0.2 DICE,train,0.4448,42.6726
+Model 5: Unet + 0.8CE + 0.2 DICE,motorcycle,0.3913,45.351
+Model 5: Unet + 0.8CE + 0.2 DICE,bicycle,0.6689,61.4761
+Model 6: 0.2CE + 0.8DICE,mIoU / Average IoU,0.6576,64.2961
+Model 6: 0.2CE + 0.8DICE,Pixel Accuracy,0.9384,
+Model 6: 0.2CE + 0.8DICE,Mean Accuracy,0.7524,
+Model 6: 0.2CE + 0.8DICE,road,0.9693,97.346
+Model 6: 0.2CE + 0.8DICE,sidewalk,0.7720,77.578
+Model 6: 0.2CE + 0.8DICE,building,0.8815,87.7686
+Model 6: 0.2CE + 0.8DICE,wall,0.3914,35.8608
+Model 6: 0.2CE + 0.8DICE,fence,0.4236,35.3461
+Model 6: 0.2CE + 0.8DICE,pole,0.5261,49.052
+Model 6: 0.2CE + 0.8DICE,traffic light,0.5934,60.0732
+Model 6: 0.2CE + 0.8DICE,traffic sign,0.6635,63.3766
+Model 6: 0.2CE + 0.8DICE,vegetation,0.8922,89.9021
+Model 6: 0.2CE + 0.8DICE,terrain,0.5762,68.6207
+Model 6: 0.2CE + 0.8DICE,sky,0.9324,93.5195
+Model 6: 0.2CE + 0.8DICE,person,0.7111,74.7278
+Model 6: 0.2CE + 0.8DICE,rider,0.5133,57.2586
+Model 6: 0.2CE + 0.8DICE,car,0.9060,91.3601
+Model 6: 0.2CE + 0.8DICE,truck,0.5421,36.4617
+Model 6: 0.2CE + 0.8DICE,bus,0.6960,47.7914
+Model 6: 0.2CE + 0.8DICE,train,0.4403,42.8536
+Model 6: 0.2CE + 0.8DICE,motorcycle,0.3811,49.531
+Model 6: 0.2CE + 0.8DICE,bicycle,0.6833,63.1981
