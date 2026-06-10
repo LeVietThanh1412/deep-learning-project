@@ -11,7 +11,7 @@ from models.unet import UNet
 # 1. CẤU HÌNH ĐƯỜNG DẪN 
 # ==========================================
 MODEL_PATH = os.path.join('outputs', 'checkpoints', 'model1_05CE.pth') 
-IMAGE_PATH = os.path.join('datasets', 'data', 'input', 'test_image_10.png')
+IMAGE_PATH = os.path.join('datasets', 'data', 'input', 'test_image_11.jpg')
 OUTPUT_DIR = os.path.join('datasets', 'data', 'output')
 
 # ĐÃ SỬA THÀNH 19 CLASS
@@ -119,7 +119,7 @@ plt.axis("off")
 plt.tight_layout()
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_path = os.path.join(OUTPUT_DIR, 'ketqua_demo_10.png')
+output_path = os.path.join(OUTPUT_DIR, 'ketqua_demo_11.jpg')
 plt.savefig(output_path, dpi=300, bbox_inches='tight')
 
 print(f"[OK] Đã lưu ảnh kết quả tại: {output_path}")
