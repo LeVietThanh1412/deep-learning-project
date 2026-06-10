@@ -1,0 +1,1 @@
+# Mẫu màu của tập dữ liệu Cityscape (đa lớp)
